@@ -1,7 +1,21 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+[tool.poetry]
+name = "backend-terabox"
+version = "1.0.0"
+description = "TeraBox Video Downloader API"
+authors = ["Your Name <your@email.com>"]
 
-[tool.render]
-build-command = "pip install -r requirements.txt"
-start-command = "gunicorn render_server:app"
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.3.3"
+flask-cors = "^4.0.0"
+requests = "^2.31.0"
+gunicorn = "^21.2.0"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "gunicorn render_server:app"
